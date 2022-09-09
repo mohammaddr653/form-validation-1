@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <title>login 2</title>
+    </head>
+    <body>
+        <div id="body-container">
+            <img class="img-fluid" alt="">
+            <div id="form-container">
+                <div class="form-top">
+                    <div class="container text-center">
+                        <div class="row align-items-start">
+                          <div class="col bg-danger sign-in" onclick="openFormSign()">
+                            ساخت اکانت جدید
+                          </div>
+                          <div class="col bg-danger log-in" onclick="openFormLog()">
+                            ورود به اکانت
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-main form-sign">
+                    <div class="mb-3">
+                        <label for="sign-user" class="form-label">نام کاربری خود را وارد کنید</label>
+                        <input type="text" class="form-control" id="sign-user" placeholder="user name" oninput="this.value=this.value.replace(/[^A-Za-z0-9~`!@#$%^&*_+=|?.,:;'\s]/g,'');">
+                        <div id="userHelp" class="form-text">شما تنها می توانید از حروف و اعداد لاتین و کاراکتر های &*#@_ . ! استفاده کنید .</div>
+                        <div class="alert alert-danger form-sign-error sign-user-error user-error-null" role="alert">
+                            -لطفا نام کاربری خود را وارد کنید .
+                        </div>
+                        <div class="alert alert-danger form-sign-error sign-user-error user-error-repet" role="alert">
+                            -این نام کاربری قبلا انتخاب شده است .
+                        </div>
+                        <div class="alert alert-danger form-sign-error sign-user-error user-error-regex" role="alert">
+                            -نام کاربری باید متشکل از حروف لاتین باشد . میتوانید از نماد های &*#@_ . ! و اعداد استفاده کنید .
+                        </div>        
+                    </div>
+                    <div class="mb-3">
+                        <label for="sign-email" class="form-label">آدرس ایمیل خود را وارد کنید</label>
+                        <input type="email" class="form-control" id="sign-email" aria-describedby="emailHelp" placeholder="email">
+                        <div id="emailHelp" class="form-text">ما آدرس ایمیل شما را به دیگران نشان نخواهیم داد .</div>
+                        <div class="alert alert-danger form-sign-error sign-email-error email-error-null" role="alert">
+                            -لطفا ایمیل خود را وارد کنید .
+                        </div>
+                        <div class="alert alert-danger form-sign-error sign-email-error email-error-repet" role="alert">
+                            -این ایمیل قبلا مورد استفاده قرار گرفته .
+                        </div>
+                        <div class="alert alert-danger form-sign-error sign-email-error email-error-regex" role="alert">
+                            -لطفا یک ایمیل معتبر وارد کنید .
+                        </div>        
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="sign-pass" class="form-label">رمز عبور</label>
+                        <input type="password" class="form-control" id="sign-pass" placeholder="Password" oninput="this.value=this.value.replace(/[^A-Za-z0-9~`!@#$%^&*_+=|?.,:;'\s]/g,'');">
+                        <div class="showpassword-toggle showpassword-show" onclick="signPassShow()"><i class="fa fa-eye" style="font-size:20px"></i></div>
+                        <div class="showpassword-toggle showpassword-hide" onclick="signPassHide()"><i class="fa fa-eye-slash" style="font-size:20px"></i></div>
+                        <div class="alert alert-danger form-sign-error sign-pass-error pass-error-null" role="alert">
+                            -لطفا رمز عبور خود را وارد کنید .
+                        </div>
+                        <div class="alert alert-danger form-sign-error sign-pass-error pass-error-regex" role="alert">
+                            -رمز عبور باید متشکل از حداقل 8 کاراکتر باشد . از حروف لاتین ، اعداد و نماد های &*#@_ . ! استفاده کنید .
+                        </div>        
+                    </div>
+                    <div class="mb-3">
+                        <label for="sign-num" class="form-label">شماره همراه</label>
+                        <input type="text" class="form-control" id="sign-num" placeholder="phone number">
+                        <div class="alert alert-danger form-sign-error sign-num-error num-error-null" role="alert">
+                            -لطفا شماره همراه خود را وارد کنید .
+                        </div>
+                        <div class="alert alert-danger form-sign-error sign-num-error num-error-regex" role="alert">
+                            -لطفا یک شماره همراه معتبر وارد کنید .
+                        </div>
+                    </div>
+                    <button id="sign-back" type="submit" class="btn btn-danger">قبلی</button>
+                    <button id="sign-next" type="submit" class="btn btn-danger"></button>
+                </div>
+                <div class="form-main form-log">
+                    <div class="mb-3">
+                        <label for="log-user" class="form-label">نام کاربری یا ایمیل خود را وارد کنید</label>
+                        <input type="text" class="form-control" id="log-user" placeholder="user name or email">
+                        <div class="alert alert-danger form-log-error log-user-error user-error-null1" role="alert">
+                            -لطفا نام کاربری یا ایمیل خود را وارد کنید .
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="log-pass" class="form-label">رمز عبور</label>
+                        <div>
+                            <input type="password" class="form-control" id="log-pass" placeholder="Password">
+                            <div class="showpassword-toggle showpassword-show1" onclick="logPassShow()"><i class="fa fa-eye" style="font-size:20px"></i></div>
+                            <div class="showpassword-toggle showpassword-hide1" onclick="logPassHide()"><i class="fa fa-eye-slash" style="font-size:20px"></i></div>
+                        </div>
+                        <div class="alert alert-danger form-log-error log-pass-error pass-error-null1" role="alert">
+                            -لطفا رمز عبور خود را وارد کنید .
+                        </div>
+                    </div>
+                    <button type="submit" id="log-submit" class="btn btn-danger">ورود به اکانت</button>
+
+                </div>
+            </div>
+        </div>
+        <script src="bootstrap.bundle.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="bootstrap.min.js"></script> 
+        <script src="index.js"></script>   
+    </body>
+</html>
