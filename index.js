@@ -81,7 +81,7 @@ function checkButtons(){
 }
 checkButtons();
 function increaseX(){
-    var signInputValidation;
+    var signInputValidation="false";
     switch(x){
         case 0 :
             signInputValidation=checkSignUser();
@@ -96,7 +96,7 @@ function increaseX(){
             signInputValidation=checkSignNum();
             break;
     }
-    if(x==formSignDivs.length-1){
+    if((x==formSignDivs.length-1)&&(signInputValidation=="true")){
         x=x;
         signFormSubmit();
     }else if(signInputValidation=="true"){
